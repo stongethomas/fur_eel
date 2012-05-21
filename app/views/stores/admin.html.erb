@@ -1,0 +1,33 @@
+<h1>Listing stores</h1>
+
+
+
+
+<div>
+	<% (0..@tags.length-1).each do |i| %>
+		<h2><%= @tags[i].tag%></h2>
+		<% @stores.each do |store| %>
+			<% if store.tag == @tags[i].tag %>
+				<p>
+				<%= store.name %>
+				<% post_body = h(store.item_code).gsub(/\n/, '<br/>').gsub('&lt;', '<').gsub('&gt;', '>').html_safe %>
+				<%= auto_link(post_body, :html => { :target => '_blank' }) %>
+				<%= store.tag %>
+				<%= store.price %>
+				<%= image_tag store.photo.url(:thumb) %>
+				<%= link_to 'Show', store %>
+				<%= link_to 'Edit', edit_store_path(store) %>
+				<%= link_to 'Destroy', store, confirm: 'Are you sure?', method: :delete %>
+				</p>
+			 <% end %> 
+		<% end %>
+		<hr />
+	<% end %>
+</div>
+
+
+
+
+<br />
+
+<%= link_to 'New Store', new_store_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-04-29
+  city: MyString
+  title: MyString
+  source: MyString
+  url: MyString
+
+two:
+  date: 2012-04-29
+  city: MyString
+  title: MyString
+  source: MyString
+  url: MyString

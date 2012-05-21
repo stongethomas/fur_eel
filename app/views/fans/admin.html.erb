@@ -1,0 +1,97 @@
+<h1>Listing fans</h1>
+<%= javascript_include_tag :defaults %>
+<table class="admin">
+  <tr>
+    <th>Email</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+  
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fans.each do |fan| %>
+  <tr>
+    <td><%= fan.email %></td>
+    <td><%= fan.city %></td>
+    <td><%= fan.state %></td>
+    <td><%= fan.country %></td>
+
+    <td><%= link_to 'Show', fan %></td>
+    <td><%= link_to 'Edit', edit_fan_path(fan) %></td>
+    <td><%= link_to "delete", fan, method: :delete, confirm: "You sure?"%></td> 
+  </tr>
+<% end %>
+</table>
+
+<br />
+<hr />
+<h1>Mailing List (Paste into CC in e-mail)</h1>
+<% @fans.each do |fan| %>
+    <%= fan.email %>, 
+<% end %>
+
+<br/>
+<hr/>
+
+
+<h1>Fans Overview</h1>
+
+ <%= @total_fans = Fan.count %> Fans Total
+
+
+<hr/>
+
+
+<h1>Fans by City</h1>
+
+<table>
+    <tr><th>Fans</th><th>Percent</th><th>City</th></tr>
+    <% (0..@cities.length-1).each do |i| %>
+    <tr>
+       <td> <%= @total_city = Fan.count(:conditions => { :city => @cities[i].city}) %></td>
+       <td><%= 100* @total_city/@total_fans %>%</td>
+        <td><i><%= @cities[i].city%></i></td>
+    </tr>
+    <% end %>
+</table>
+
+<hr/>
+
+
+
+<h1>Fans by Prov/State</h1>
+
+<table>
+    <tr><th>Fans</th><th>Percent</th><th>Prov/State</th></tr>
+    <% (0..@states.length-1).each do |i| %>
+    <tr>
+       <td> <%= @total_state = Fan.count(:conditions => { :state => @states[i].state}) %></td>
+       <td><%= 100* @total_state/@total_fans %>%</td>
+        <td><i><%= @states[i].state%></i></td>
+    </tr>
+    <% end %>
+</table>
+
+<hr/>
+
+
+<h1>Fans by Country</h1>
+
+<table>
+    <tr><th>Fans</th><th>Percent</th><th>Country</th></tr>
+    <% (0..@countries.length-1).each do |i| %>
+    <tr>
+       <td> <%= @total_country = Fan.count(:conditions => { :country => @countries[i].country}) %></td>
+       <td><%= 100* @total_country/@total_fans %>%</td>
+        <td><i><%= @countries[i].country %></i></td>
+    </tr>
+    <% end %>
+</table>
+
+<hr/>
+
+
+<%= link_to 'New Fan', new_fan_path %>

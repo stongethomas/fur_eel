@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fur Eel</title>
+  <%= stylesheet_link_tag 'fans' %>
+<%= javascript_include_tag :defaults %>
+<%= csrf_meta_tag %>
+
+
+<link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
+<link rel="icon" href="/favicon.gif" type="image/gif" >
+<title>Fur Eel - Regina, SK Soul, Funk and Rock 'n' Roll</title>
+<meta name="description" content="Fur Eel - Regina's Soul, Rock and Funk Band" />
+<meta name="keywords" content="Fur,Eel,Music,Regina,Saskatchewan,Sask,SK,Soul,Rock,Funk,Blues,Justin,Sheppard,Thomas,St.Onge,Travis,Reshaur,James,Belle,Elephant,Summer,Band" />
+<meta name="google-site-verification" content="njqpDd48zo388Xiq12nkMLrOBBRRrEMtsOZmjmvyflc" />
+
+    <script type="text/javascript" src="/javascripts/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-embedagram.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#slideshow').embedagram({
+            instagram_id: 29549745, 
+            thumb_width: 175, 
+            limit: 1
+        });
+    });
+    </script>
+
+
+
+</head>
+<body>
+
+
+
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

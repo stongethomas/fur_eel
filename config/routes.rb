@@ -1,4 +1,111 @@
 FurEel::Application.routes.draw do
+
+
+  resources :friends do
+    collection do
+      get :admin
+    end
+  end
+  resources :shows do
+    collection do
+      get :admin
+    end
+  end
+  resources :fans do
+    collection do
+      get :admin
+    end
+  end
+  resources :bands do
+    collection do
+      get :admin
+    end
+  end
+  resources :contacts do
+    collection do
+      get :admin
+    end
+  end
+  resources :members do
+    collection do
+      get :admin
+    end
+  end
+  resources :articles do
+    collection do
+      get :admin
+    end
+  end
+  resources :stores do
+    collection do
+      get :admin
+    end
+  end
+  resources :pictures do
+    collection do
+      get :admin
+    end
+  end
+  resources :musics do
+    collection do
+      get :admin
+    end
+  end
+  resources :videos do
+    collection do
+      get :admin
+    end
+  end
+   resources :users
+
+root to: 'static_pages#free_album'
+
+  match '/home',      to: 'static_pages#home'
+  match '/news',      to: 'static_pages#home'
+  match '/friends',   to: 'friends#index'
+  match '/shows',     to: 'shows#index' 
+  match '/fans',     to: 'fans#index'
+  match '/bands',     to: 'bands#index'
+  match '/contacts',     to: 'contacts#index'
+  match '/members',     to: 'members#index'
+  match '/articles',     to: 'articles#index'
+  match '/stores',     to: 'stores#index'
+  match '/pictures',     to: 'pictures#index'
+  match '/musics',     to: 'musics#index'
+  match '/videos',     to: 'videos#index'
+
+  match '/shows/admin', to: 'shows#admin'
+  match '/friends/admin',   to: 'friends#admin'
+  match '/fans/admin',     to: 'fans#admin'
+  match '/bands/admin',     to: 'bands#admin'
+  match '/contacts/admin',     to: 'contacts#admin'
+  match '/members/admin',     to: 'members#admin'
+  match '/articles/admin',     to: 'articles#admin'
+  match '/stores/admin',     to: 'stores#admin'
+  match '/pictures/admin',     to: 'pictures#admin'
+  match '/musics/admin',     to: 'musics#admin'
+  match '/videos/admin',     to: 'videos#admin'
+
+  match '/admin',     to: 'static_pages#admin'
+  match '/perhaps_another_time',     to: 'static_pages#perhaps_another_time'
+  match '/download',     to: 'static_pages#download'
+  match '/freealbum', to: 'fans#new'
+
+match '/free_album', to: 'static_pages#free_album'
+
+match '/welcome_email', to: 'fan_mailer/welcome_email'
+
+resources :sessions
+
+match '/login', to:'sessions#new'
+match '/logout', to: 'sessions#destroy'
+
+
+
+   # resources :sessions, only: [:new, :create, :destroy]
+  
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

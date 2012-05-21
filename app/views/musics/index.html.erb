@@ -1,0 +1,18 @@
+
+
+
+
+<% @musics.each do |music| %>
+  
+  <div class="center">
+    <%= link_to music.title.upcase , music %>
+    (<%= music.year %>)
+    <br/>
+
+    <%= link_to image_tag(music.photo.url(:large), :border=>0), music %>
+  </div>
+  <hr/>
+
+<% end %>
+
+

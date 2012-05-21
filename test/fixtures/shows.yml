@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-04-27
+  venue: MyString
+  venue_url: MyString
+  city: MyString
+  tickets_url: MyString
+  details: MyString
+  facebook_url: MyString
+
+two:
+  date: 2012-04-27
+  venue: MyString
+  venue_url: MyString
+  city: MyString
+  tickets_url: MyString
+  details: MyString
+  facebook_url: MyString

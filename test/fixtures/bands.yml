@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  paypal_view_cart: MyString
+  facebook: MyString
+  instagram: MyString
+  twitter: MyString
+  band_name: MyString
+  tumblr: MyString
+  bio: MyString
+  epk: MyString
+
+two:
+  paypal_view_cart: MyString
+  facebook: MyString
+  instagram: MyString
+  twitter: MyString
+  band_name: MyString
+  tumblr: MyString
+  bio: MyString
+  epk: MyString

@@ -1,0 +1,23 @@
+<h3>PRESS</h3>
+
+<table class="press">
+
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.date %></td>
+    <td><%= article.city %></td>
+    <td><%= article.source %></td>
+	<% if article.pdf.url.empty? %>
+		<td><a href="<%= article.url %>" target="blank"><%= article.title %></a></td>
+	<% else %>
+		<td><a href="<%= article.pdf.url %>" target="blank"><%= article.title %></a></td>
+    <% end %>
+
+  </tr>
+<% end %>
+</table>
+
+
+
+

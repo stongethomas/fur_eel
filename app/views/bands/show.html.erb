@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Paypal view cart:</b>
+  <%= @band.paypal_view_cart %>
+</p>
+
+<p>
+  <b>Facebook:</b>
+  <%= @band.facebook %>
+</p>
+
+<p>
+  <b>Instagram:</b>
+  <%= @band.instagram %>
+</p>
+
+<p>
+  <b>Twitter:</b>
+  <%= @band.twitter %>
+</p>
+
+<p>
+  <b>Band name:</b>
+  <%= @band.band_name %>
+</p>
+
+<p>
+  <b>Tumblr:</b>
+  <%= @band.tumblr %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @band.bio %>
+</p>
+
+<p>
+  <b>Epk:</b>
+  <%= @band.epk %>
+</p>
+
+
+<%= link_to 'Edit', edit_band_path(@band) %> |
+<%= link_to 'Back', bands_path %>

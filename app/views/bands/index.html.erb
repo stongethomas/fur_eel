@@ -1,0 +1,37 @@
+
+
+
+
+
+
+<div class="members">
+    <% @members.each do |member| %>
+        <div class="member">
+           <b><%= member.name.upcase %></b><br/>
+            <%= member.role %><br/>
+            <%= image_tag member.photo.url(:small) %>
+        </div>
+
+    <% end %>
+</div>
+<div class="clear_float"></div>
+<br />
+<hr/>
+
+
+
+<% @bands.each do |band| %>
+
+    <b>BIO</b><br>
+    <p>
+        <%= band.bio %>
+    </p>
+    <hr/>
+
+    
+   
+
+<% end %>
+
+
+<br />

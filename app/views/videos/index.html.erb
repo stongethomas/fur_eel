@@ -1,0 +1,16 @@
+
+
+
+
+<% @videos.each do |video| %>
+  <div class="youtube_thumb">
+    <%= link_to video.title.upcase, 'videos/'+video.id.to_s %><br/>
+	<%= link_to image_tag( "http://img.youtube.com/vi/" + video.youtube_id + "/2.jpg", :border => 0 ), 'videos/'+video.id.to_s %>
+</div>
+<% end %>
+<div class="show_details">
+</div>
+
+<br />
+
+

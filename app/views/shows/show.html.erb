@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+
+
+<div class="show_poster">
+
+<b><%= @show.date %> | <a href="<%= @show.venue_url %>" target="blank"><%= @show.venue.upcase %></a> | <%= @show.city.upcase %></b>
+
+  <% if(!@show.facebook_url.empty?) %>
+     | <a href="<%= @show.facebook_url %>" target="blank"><img src="/buttons/fbevent.png" border="none" target="blank" width="15px"/>FB EVENT</a>
+   <% end %>
+
+  <% if(!@show.tickets_url.empty?) %>
+       | <a href="<%= @show.tickets_url %>" target="blank">BUY TICKETS </a>
+  <% end %>
+
+<br/>
+
+  <p>
+  	<%= image_tag @show.photo.url(:poster) %>
+  </p>
+</div>
+
+<div class="show_details">
+
+  <p>
+  <% post_body = h(@show.details).gsub(/\n/, '<br/>').gsub('&lt;', '<').gsub('&gt;', '>').html_safe %>
+  <%= auto_link(post_body, :html => { :target => '_blank' }) %>
+  </p>
+
+</div>
+
+<hr/>
+
+<%= link_to 'Back', shows_path %>

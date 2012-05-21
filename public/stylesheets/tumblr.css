@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.tumblr_posts {	
+	
+}
+
+
+ol.tumblr_posts {
+    list-style-type: none
+}
+
+
+
+.tumblr_post {		
+	padding:10px;
+	margin-bottom:15px;
+	border-top: 3px solid black;
+}
+.tumblr_title {	
+	font-size: 20px;
+	font-weight: bold;	
+}
+.tumblr_body img {	
+	height: 400px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tumblr_photo {	
+	height: 400px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+}
+
+.tumblr_photo_post {	
+	text-align: center;
+}
+
+.read_more_container {
+	
+}
+.read_more_container a {
+	
+}
+
+
+
+.tumblr_quote {	
+
+}
+.tumblr_quote p {		
+
+}
+.tumblr_source {
+	
+}
+
+

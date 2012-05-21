@@ -1,0 +1,60 @@
+<% provide(:title, 'Shows') %>
+
+
+<h3>UPCOMING SHOWS</h3>
+<table class="shows">
+  <tr>
+    <td>DATE</td>
+    <td>VENUE</td>
+    <td>CITY</td>
+    <td>EVENT</td>
+    <td></td>
+  </tr>
+
+<% @new_shows.each do |show| %>
+  <tr>
+    <td><a href="shows/<%= show.id %>"><%= show.date %></a></td>
+    <td><a href="<%= show.venue_url %>" target="blank"><%= show.venue %></a></td>
+    <td><%= show.city %></td>
+    <td>
+  		<% if(!show.facebook_url.empty?) %>
+  			<a href="<%= show.facebook_url %>" target="blank"><img src="/buttons/fbevent.png" border="none" target="blank" width="20px"/></a></td>
+  		<% end %>
+	  </td>
+	<td><%= link_to 'Details', show %></td>
+  </tr>
+<% end %>
+</table>
+
+  <hr/>
+ <h3>PAST SHOWS</h3>
+<table class="shows">
+  <tr>
+    <td>DATE</td>
+    <td>VENUE</td>
+    <td>CITY</td>
+    <td>EVENT</td>
+    <td></td>
+  </tr>
+ 
+<% @old_shows.each do |show| %>
+  <tr>
+    <td><a href="shows/<%= show.id %>"><%= show.date %></a></td>
+    <td><a href="<%= show.venue_url %>" target="blank"><%= show.venue %></a></td>
+    <td><%= show.city %></td>
+    <td>
+      <% if(!show.facebook_url.empty?) %>
+        <a href="<%= show.facebook_url %>" target="blank"><img src="/buttons/fbevent.png" border="none" target="blank" width="20px"/></a></td>
+      <% end %>
+    </td>
+  <td><%= link_to 'Details', show %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+
+  <hr/>
+
+

@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+
+  <b><%= @music.title.upcase %> </b> (<%= @music.year %>)
+  <br/>
+  <br/>
+
+<div class="cd">
+  <% if @music.soundcloud_embed.empty? %>
+    <%= image_tag @music.photo.url(:large), :border=>0 %>
+  <% else %> 
+    <object height="425" width="425"> 
+    <param name="movie" value="https://player.soundcloud.com/player.swf?url=<%= @music.soundcloud_embed %>;auto_play=false&amp;player_type=artwork&amp;color=6a6a6a"></param> 
+    <param name="allowscriptaccess" value="always"></param> 
+    <embed allowscriptaccess="always" height="425" src="https://player.soundcloud.com/player.swf?url=<%= @music.soundcloud_embed %>;auto_play=false&amp;player_type=artwork&amp;color=6a6a6a" type="application/x-shockwave-flash" width="425">
+    </embed> 
+    </object> 
+  <% end %>
+</div>
+
+
+<div class="tracklist">
+  <ol>
+  <% (0..@tracks.length-1).each do |i| %>
+   <li> <%= @tracks[i] %> </li>   
+  <% end %>
+  </ol>
+</div>
+
+<br/>
+<div class="cd_details">
+  <br/>
+
+
+  <% if !@music.amazon_url.empty? %>
+    <%= link_to image_tag("/buttons/amazon.png", :border=>0, :width=>"100px"), @music.amazon_url, :target => "_blank" %> 
+  <% end %>
+
+  <% if !@music.amazon_uk_url.empty? %>
+    <%= link_to image_tag("/buttons/amazonuk.png", :border=>0, :width=>"100px"), @music.amazon_uk_url, :target => "_blank" %> 
+  <% end %>
+
+  <% if !@music.itunes_url.empty? %>
+    <%= link_to image_tag("/buttons/itunes.png", :border=>0, :width=>"100px"), @music.itunes_url, :target => "_blank" %> 
+  <% end %>
+
+  <% if !@music.cd_baby_url.empty? %>
+    <%= link_to image_tag("/buttons/cdbaby.png", :border=>0, :width=>"100px"), @music.cd_baby_url, :target => "_blank" %> 
+  <% end %>
+
+
+</div>
+<br/>
+
+<hr/>
+
+<%= link_to 'Back', musics_path %>

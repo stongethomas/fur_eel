@@ -1,0 +1,115 @@
+
+
+<div class="center">
+    Please choose a way to share it with your friends
+
+
+<div id="fb-root"></div>
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({appId: '113700398662301', status: true, cookie: true, xfbml: true});
+                /* All the events registered */
+                FB.Event.subscribe('auth.login', function(response) {
+                    // do something with response
+                    login();
+                });
+                FB.Event.subscribe('auth.logout', function(response) {
+                    // do something with response
+                    logout();
+                });
+				FB.Event.subscribe('edge.create',
+					function(response) {
+						mydiv = document.getElementById("liked");
+						mydiv.style.visibility = "visible"; //to show it
+					}
+				);
+                FB.getLoginStatus(function(response) {
+                    if (response.session) {
+                        // logged in and connected user, someone you know
+                        login();
+                    }
+                });
+            };
+            (function() {
+                var e = document.createElement('script');
+                e.type = 'text/javascript';
+                e.src = document.location.protocol +
+                    '//connect.facebook.net/en_US/all.js';
+                e.async = true;
+                document.getElementById('fb-root').appendChild(e);
+            }());
+            function login(){
+                FB.api('/me', function(response) {
+                    document.getElementById('login').style.display = "block";
+                    document.getElementById('login').innerHTML = response.name + " succsessfully logged in!";
+                });
+            }
+            function logout(){
+                document.getElementById('login').style.display = "none";
+            }
+            //stream publish method
+            function streamPublish(name, description, hrefTitle, hrefLink, userPrompt){
+                FB.ui(
+                {
+                    method: 'stream.publish',
+                    message: '',
+                    attachment: {
+                        name: name,
+                        caption: '',
+                        description: (description),
+                        href: hrefLink
+                    },
+                    action_links: [
+                        { text: hrefTitle, href: hrefLink }
+                    ],
+                    user_prompt_message: userPrompt
+                },
+                function(response) {
+                });
+            }
+            function share(){
+                var share = {
+                    method: 'stream.share',
+                    u: 'http://www.fureelmusic.com/free_album.html'
+                };
+                FB.ui(share, function(response) { console.log(response); });
+                window.open("http://www.fureelmusic.com/free_album.html")
+            }
+        </script>
+<div class="share_container">
+    <div class="fb_share">
+        <fb:like href="http://www.fureelmusic.com/free_album.html" send="false" width="450" show_faces="false" action="recommend"></fb:like>
+    </div>
+
+    <div class="twitter_share">
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.fureelmusic.com/free_album.html" data-text="Download a free album by Fur Eel!" data-count="horizontal" data-via="fureelmusic">Tweet</a>
+    </div>
+
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js">
+    </script>
+    <script type="text/javascript">
+                twttr.events.bind('tweet', function(event) {
+                    show_div();
+    			});
+    </script>
+    <script type="text/javascript">
+    	function show_div()
+    	{
+    		mydiv = document.getElementById("liked");
+    		mydiv.style.visibility = "visible"; //to show it
+    	}
+    </script>
+
+
+
+
+    <iframe class="friend" src="/friends/new"></iframe>
+
+</div>
+<div class="clear_float"></div>
+
+<div id="liked">
+<a href="/perhaps_another_time.zip" target="blank">Download 'Perhaps Another Time' Now!</a>
+</div>
+
+</div>

@@ -1,0 +1,43 @@
+
+
+
+
+
+
+<div>
+	<% (0..@tags.length-1).each do |i| %>
+		<b><%= @tags[i].tag.upcase %></b><br/>
+		<% @stores.each do |store| %>
+			
+			<% if store.tag == @tags[i].tag %>
+				<div class="merch_item">
+					<p>
+						<%= link_to store.name, store %>
+					<br/>
+					$<%= "%0.2f" % store.price %> <br/>
+					<%= link_to image_tag(store.photo.url(:medium)), store %>
+					<%= store.item_code.html_safe %>
+					</p>
+				</div>
+
+
+
+			<% end %> 
+			
+			
+			 
+		<% end %>
+		<div class="clear_float"></div>
+		<hr />
+	<% end %>
+</div>
+<div class="center">
+<% @bands.each do |band| %>
+
+    <%= band.paypal_view_cart.html_safe %>
+
+<% end %>
+</div>
+<br />
+
+

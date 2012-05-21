@@ -1,0 +1,51 @@
+
+
+
+
+<% @contacts.each do |contact| %>
+
+  
+    
+   
+
+   <div class="contact_info">
+    <b> <%= contact.title.upcase %></b><br/>
+      <ul>
+      <li> <a href="<%= contact.url %>" target="blank"><%= contact.name %></a><br/></li>
+      <li><a href="mailto:<%= contact.email %>"><%= contact.email %></a></li>
+      </ul>
+  </div>
+  <div class="contact_photo">
+    	<% if contact.photo.url.empty? || contact.photo.url=="/photos/original/missing.png" %>
+    	<% else %>
+    		<a href="<%= contact.url %>" target="blank"><%= image_tag contact.photo.url(:medium) %></a>
+    	<% end %>
+  </div>
+  <div class="clear_float"></div>
+<hr/><br/><br/>
+<% end %>
+
+
+<% @bands.each do |band| %>
+      <% if !band.epk.empty? %>
+      <div class="contact_info">
+        <b>ELECTRONIC PRESS KIT</b><br/>
+          <ul>
+          <li><a href="<%= band.epk %>" target="blank"> SonicBids </a></li>
+          </ul>
+      </div>
+
+        <div class="contact_photo">
+          <a href="<%= band.epk %>" target="blank"> <img src="/buttons/sonicbids.png" border="0px" width="300px"/></a>
+      </div>
+      <div class="clear_float"></div>
+    <div class="epk">
+    <% end %>
+  
+<% end %>
+
+<hr/>
+
+
+
+

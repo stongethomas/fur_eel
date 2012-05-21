@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+  <b>
+  <%= @store.name.upcase %></b>  | <i>$<%= "%0.2f" % @store.price %> </i><br/>
+
+
+
+<div class="cd">
+  <%= image_tag @store.photo.url(:large) %>
+</div>
+
+<div>
+
+  <% post_body = h(@store.desc).gsub(/\n/, '<br/>').gsub('&lt;', '<').gsub('&gt;', '>').html_safe %>
+  <%= auto_link(post_body, :html => { :target => '_blank' }) %><br/>
+</div>
+
+<div class="cd_details">
+  <%= @store.item_code.html_safe %>
+
+</div>
+
+
+<%= link_to 'Back', stores_path %>

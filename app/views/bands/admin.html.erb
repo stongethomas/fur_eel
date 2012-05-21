@@ -1,0 +1,37 @@
+<h1>Listing bands</h1>
+
+<table class="admin">
+  <tr>
+
+    <th>Facebook</th>
+    <th>Instagram</th>
+    <th>Twitter</th>
+    <th>Band name</th>
+    <th>Tumblr</th>
+    <th>Bio</th>
+    <th>Epk</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bands.each do |band| %>
+  <tr>
+
+    <td><%= band.facebook %></td>
+    <td><%= band.instagram %></td>
+    <td><%= band.twitter %></td>
+    <td><%= band.band_name %></td>
+    <td><%= band.tumblr %></td>
+    <td><%= band.bio %></td>
+    <td><%= band.epk %></td>
+    <td><%= link_to 'Show', band %></td>
+    <td><%= link_to 'Edit', edit_band_path(band) %></td>
+    <td><%= link_to 'Destroy', band, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Band', new_band_path %>

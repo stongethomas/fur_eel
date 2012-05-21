@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+<div class="center">
+	<%= image_tag @picture.photo.url(:large) %>
+	<br/>
+  	<%= @picture.caption %>
+</div>
+
+
+
+
+<%= link_to 'Back', pictures_path %>

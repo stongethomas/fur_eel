@@ -1,0 +1,35 @@
+<h1>Listing contacts</h1>
+
+<table class="admin">
+  <tr>
+    <th>Email</th>
+	<th>Title</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contacts.each do |contact| %>
+  <tr>
+    <td><%= contact.email %></td>
+    
+    <td><%= contact.title %></td>
+	<% if contact.photo.url.empty? || contact.photo.url=="/photos/original/missing.png" %>
+		<td><a href="<%= contact.url %>" target="blank"><%= contact.name %></a></td>
+	<% else %>
+		<td><a href="<%= contact.url %>" target="blank"><%= image_tag contact.photo.url(:medium) %></a></td>
+	<% end %>
+    <td><%= link_to 'Show', contact %></td>
+
+    <% if admin? %>
+    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+    <td><%= link_to 'Destroy', contact, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contact', new_contact_path %>

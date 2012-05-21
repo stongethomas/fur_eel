@@ -1,0 +1,55 @@
+<%= form_for @music, :html => { :multipart => true } do |f| %>
+
+
+  <% if @music.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@music.errors.count, "error") %> prohibited this music from being saved:</h2>
+
+      <ul>
+      <% @music.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label "tracklist (seperate each title by a comma, do not include numbers)" %><br />
+    <%= f.text_field :tracklist %>
+  </div>
+  <div class="field">
+    <%= f.label :amazon_url %><br />
+    <%= f.text_field :amazon_url %>
+  </div>
+  <div class="field">
+    <%= f.label :itunes_url %><br />
+    <%= f.text_field :itunes_url %>
+  </div>
+  <div class="field">
+    <%= f.label :amazon_uk_url %><br />
+    <%= f.text_field :amazon_uk_url %>
+  </div>
+  <div class="field">
+    <%= f.label :cd_baby_url %><br />
+    <%= f.text_field :cd_baby_url %>
+  </div>
+  <div class="field">
+    <%= f.label :soundcloud_embed %><br />
+    <%= f.text_field :soundcloud_embed %>
+  </div>
+  <div class="field">
+    <%= f.label 'Photo' %><br />
+	<%= f.file_field :photo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

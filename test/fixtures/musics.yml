@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  year: MyString
+  tracklist: 
+  amazon_url: MyString
+  itunes_url: MyString
+  amazon_uk_url: MyString
+  cd_baby_url: MyString
+  soundcloud_embed: MyString
+
+two:
+  title: MyString
+  year: MyString
+  tracklist: 
+  amazon_url: MyString
+  itunes_url: MyString
+  amazon_uk_url: MyString
+  cd_baby_url: MyString
+  soundcloud_embed: MyString

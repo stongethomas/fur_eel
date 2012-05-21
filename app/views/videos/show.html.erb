@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="youtube_video">
+<p>
+  <b><%= @video.title.upcase %></b>
+</p>
+
+<p>
+<span style="background-color: #fdeee0;"><iframe width="460" title="YouTube video player" src=<%= @url %> height="289" frameborder="0"></iframe>
+</p>
+</div>
+
+
+<%= link_to 'Back', videos_path %>
